@@ -15,6 +15,7 @@ class PlayViewController: UIViewController {
     @IBOutlet var buttonDown: UIButton!
     @IBOutlet var buttonRight: UIButton!
     @IBOutlet var imageHero: UIImageView!
+    let motionDistance = 50         //motion distance when push navigation panel button
     
     
     override func viewDidLoad() {
@@ -30,15 +31,35 @@ class PlayViewController: UIViewController {
     
     @IBAction func pushButtonUp(_ sender: Any) {
         //move hero up
+        UIView.animate(withDuration: 0.5, animations: {
+            var frameTemp = self.imageHero.frame
+            frameTemp.origin.y = frameTemp.origin.y - CGFloat(self.motionDistance)
+            self.imageHero.frame = frameTemp
+        })
     }
     @IBAction func pushButtonDown(_ sender: Any) {
         //move hero down
+        UIView.animate(withDuration: 0.5, animations: {
+            var frameTemp = self.imageHero.frame
+            frameTemp.origin.y = frameTemp.origin.y + CGFloat(self.motionDistance)
+            self.imageHero.frame = frameTemp
+        })
     }
     @IBAction func pushButtonRight(_ sender: Any) {
         //move hero right
+        UIView.animate(withDuration: 0.5, animations: {
+            var frameTemp = self.imageHero.frame
+            frameTemp.origin.x = frameTemp.origin.x + CGFloat(self.motionDistance)
+            self.imageHero.frame = frameTemp
+        })
     }
     @IBAction func pushButtonLeft(_ sender: Any) {
         //move hero left
+        UIView.animate(withDuration: 0.5, animations: {
+            var frameTemp = self.imageHero.frame
+            frameTemp.origin.x = frameTemp.origin.x - CGFloat(self.motionDistance)
+            self.imageHero.frame = frameTemp
+        })
     }
 
     /*

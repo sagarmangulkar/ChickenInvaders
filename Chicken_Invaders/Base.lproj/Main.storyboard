@@ -46,7 +46,7 @@
                         <viewControllerLayoutGuide type="top" id="0QT-Gq-m3F"/>
                         <viewControllerLayoutGuide type="bottom" id="Ai3-fg-0e4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="d5y-If-nfR">
+                    <view key="view" contentMode="scaleToFill" id="d5y-If-nfR" userLabel="PlayView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -76,7 +76,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXA-qa-xLI" colorLabel="IBBuiltInLabel-Red">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXA-qa-xLI" userLabel="NavigationPannelView" colorLabel="IBBuiltInLabel-Red">
                                 <rect key="frame" x="0.0" y="550" width="375" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
