@@ -28,6 +28,18 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func pushButtonUp(_ sender: Any) {
+        //move hero up
+    }
+    @IBAction func pushButtonDown(_ sender: Any) {
+        //move hero down
+    }
+    @IBAction func pushButtonRight(_ sender: Any) {
+        //move hero right
+    }
+    @IBAction func pushButtonLeft(_ sender: Any) {
+        //move hero left
+    }
 
     /*
     // MARK: - Navigation

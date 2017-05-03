@@ -84,21 +84,33 @@
                                         <rect key="frame" x="25" y="23" width="65" height="67"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonLeft.jpg"/>
+                                        <connections>
+                                            <action selector="pushButtonLeft:" destination="INL-h3-c2f" eventType="touchUpInside" id="cDf-j4-5br"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-jk-Bq3">
                                         <rect key="frame" x="138" y="3" width="87" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonUp.jpg"/>
+                                        <connections>
+                                            <action selector="pushButtonUp:" destination="INL-h3-c2f" eventType="touchUpInside" id="AB4-uv-gPS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k7-ZI-5dJ">
                                         <rect key="frame" x="271" y="31" width="76" height="59"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonRight.jpg"/>
+                                        <connections>
+                                            <action selector="pushButtonRight:" destination="INL-h3-c2f" eventType="touchUpInside" id="o2f-9G-HbO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHb-h2-yGW">
                                         <rect key="frame" x="138" y="64" width="87" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonDown.jpg"/>
+                                        <connections>
+                                            <action selector="pushButtonDown:" destination="INL-h3-c2f" eventType="touchUpInside" id="sOP-43-ALj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66404156130000003" green="0.49277341670000002" blue="0.77233993239999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +122,7 @@
                         <outlet property="buttonDown" destination="fHb-h2-yGW" id="jhf-Dr-aSK"/>
                         <outlet property="buttonLeft" destination="voA-6e-HCJ" id="5cr-1H-QHd"/>
                         <outlet property="buttonRight" destination="6k7-ZI-5dJ" id="7KL-df-rZI"/>
-                        <outlet property="buttonUp" destination="kYV-jk-Bq3" id="jwQ-vK-ZcK"/>
+                        <outlet property="buttonUp" destination="kYV-jk-Bq3" id="uq4-0W-Go8"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
                     </connections>
                 </viewController>
