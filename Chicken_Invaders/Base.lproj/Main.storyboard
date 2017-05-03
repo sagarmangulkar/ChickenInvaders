@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Play View Controller-->
         <scene sceneID="s1R-Zd-RJE">
             <objects>
-                <viewController id="INL-h3-c2f" sceneMemberID="viewController">
+                <viewController id="INL-h3-c2f" customClass="PlayViewController" customModule="Chicken_Invaders" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0QT-Gq-m3F"/>
                         <viewControllerLayoutGuide type="bottom" id="Ai3-fg-0e4"/>
@@ -50,6 +50,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nw2-8M-GVm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hero_plane.png" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-Ps-Gcf">
+                                        <rect key="frame" x="136" y="466" width="80" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-hz-7qW">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0q-cc-Oke">
                                 <rect key="frame" x="134" y="61" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -57,21 +76,54 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-hz-7qW">
-                                <rect key="frame" x="125" y="194" width="34" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXA-qa-xLI" colorLabel="IBBuiltInLabel-Red">
+                                <rect key="frame" x="0.0" y="550" width="375" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voA-6e-HCJ">
+                                        <rect key="frame" x="25" y="23" width="65" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="buttonLeft.jpg"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-jk-Bq3">
+                                        <rect key="frame" x="138" y="3" width="87" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="buttonUp.jpg"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k7-ZI-5dJ">
+                                        <rect key="frame" x="271" y="31" width="76" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="buttonRight.jpg"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHb-h2-yGW">
+                                        <rect key="frame" x="138" y="64" width="87" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="buttonDown.jpg"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66404156130000003" green="0.49277341670000002" blue="0.77233993239999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonDown" destination="fHb-h2-yGW" id="jhf-Dr-aSK"/>
+                        <outlet property="buttonLeft" destination="voA-6e-HCJ" id="5cr-1H-QHd"/>
+                        <outlet property="buttonRight" destination="6k7-ZI-5dJ" id="7KL-df-rZI"/>
+                        <outlet property="buttonUp" destination="kYV-jk-Bq3" id="jwQ-vK-ZcK"/>
+                        <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktU-oT-6Pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="101"/>
+            <point key="canvasLocation" x="696.79999999999995" y="100.29985007496252"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buttonDown.jpg" width="338" height="340"/>
+        <image name="buttonLeft.jpg" width="343" height="341"/>
+        <image name="buttonRight.jpg" width="344" height="344"/>
+        <image name="buttonUp.jpg" width="341" height="342"/>
+        <image name="hero_plane.png" width="720" height="713"/>
+    </resources>
 </document>
