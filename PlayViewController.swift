@@ -10,6 +10,7 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var imageChiecken1: UIImageView!
     @IBOutlet var buttonLeft: UIButton!
     @IBOutlet var buttonUp: UIButton!
     @IBOutlet var buttonDown: UIButton!
@@ -20,13 +21,21 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            timers()
+        //moveChicken()
+        //moveChickenInCurveMotion()
         
-        // Do any additional setup after loading the view.
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func timers(){
+        var timerMoveChicken = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(moveChicken), userInfo: nil, repeats: true)
+        
     }
     
     @IBAction func pushButtonUp(_ sender: Any) {
@@ -41,7 +50,7 @@ class PlayViewController: UIViewController {
     }
     @IBAction func pushButtonDown(_ sender: Any) {
         //move hero down
-        if (imageHero.frame.origin.y < 450) {
+        if (imageHero.frame.origin.y < 30) {
             UIView.animate(withDuration: 0.5, animations: {
                 var frameTemp = self.imageHero.frame
                 frameTemp.origin.y = frameTemp.origin.y + CGFloat(self.motionDistance)
@@ -68,6 +77,69 @@ class PlayViewController: UIViewController {
                 self.imageHero.frame = frameTemp
             })
         }
+        moveChicken()
+    }
+    
+    func moveChicken(){
+        UIView.animate(withDuration: 5, animations: {
+            //var frameTemp = self.imageChiecken1.frame
+            //frameTemp.origin.x = frameTemp.origin.x + 50
+            //frameTemp.origin.y = frameTemp.origin.y + 50
+            
+            
+            let circlePath = UIBezierPath(arcCenter: CGPoint(x:150, y:300), radius: 150, startAngle: 0, endAngle: 130, clockwise: true)
+            
+            let animation = CAKeyframeAnimation(keyPath: "position");
+            animation.duration = 40
+            animation.repeatCount = MAXFLOAT
+            animation.path = circlePath.cgPath
+            self.imageChiecken1.layer.add(animation, forKey: nil)
+            //self.imageChiecken1.frame = frameTemp
+            
+
+        })
+    
+    }
+    
+    func moveChickenInCurveMotion() {
+        /*let path = UIBezierPath()
+        //path.addArc(withCenter: CGPoint(x: 100, y:100), radius: 30, startAngle: 30, endAngle: 140, clockwise: true)
+        path.move(to: CGPoint(x: 16,y: 239))
+        path.addCurve(to: CGPoint(x: 301, y: 239), controlPoint1: CGPoint(x: 136, y: 373), controlPoint2: CGPoint(x: 178, y: 110))
+
+        let animate = CAKeyframeAnimation(keyPath: "position")
+        animate.path = path.cgPath
+        animate.rotationMode = kCAAnimationRotateAuto
+        animate.repeatCount = Float.infinity
+        animate.duration = 5.0
+        imageChiecken1.layer.add(animate, forKey: "Moving")
+        
+        */
+        
+        
+        //let circlePath = UIBezierPath(arcCenter: CGPoint(view.frame.midX, view.frame.midY), radius: 20, startAngle: 0, endAngle:CGFloat(M_PI)*2, clockwise: true)
+        
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x:150, y:300), radius: 30, startAngle: 0, endAngle: 130, clockwise: true)
+        
+        let animation = CAKeyframeAnimation(keyPath: "position");
+        animation.duration = 1
+        animation.repeatCount = MAXFLOAT
+        animation.path = circlePath.cgPath
+        
+        let squareView = UIView()
+        //whatever the value of origin for squareView will not affect the animation
+        squareView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        squareView.backgroundColor = UIColor.lightGray
+        view.addSubview(squareView)
+        // You can also pass any unique string value for key
+        squareView.layer.add(animation, forKey: nil)
+        
+        // circleLayer is only used to locate the circle animation path
+        let circleLayer = CAShapeLayer()
+        circleLayer.path = circlePath.cgPath
+        circleLayer.strokeColor = UIColor.black.cgColor
+        circleLayer.fillColor = UIColor.clear.cgColor
+        view.layer.addSublayer(circleLayer)
     }
     
     

@@ -46,12 +46,12 @@
                         <viewControllerLayoutGuide type="top" id="0QT-Gq-m3F"/>
                         <viewControllerLayoutGuide type="bottom" id="Ai3-fg-0e4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="d5y-If-nfR" userLabel="PlayView">
+                    <view key="view" contentMode="scaleToFill" id="d5y-If-nfR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nw2-8M-GVm">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nw2-8M-GVm" userLabel="PlayView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hero_plane.png" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-Ps-Gcf">
@@ -66,6 +66,10 @@
                                             <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chicken1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-zh-BnG">
+                                        <rect key="frame" x="136" y="114" width="65" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -123,6 +127,7 @@
                         <outlet property="buttonLeft" destination="voA-6e-HCJ" id="5cr-1H-QHd"/>
                         <outlet property="buttonRight" destination="6k7-ZI-5dJ" id="7KL-df-rZI"/>
                         <outlet property="buttonUp" destination="kYV-jk-Bq3" id="uq4-0W-Go8"/>
+                        <outlet property="imageChiecken1" destination="Hln-zh-BnG" id="QY4-8x-l9v"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
                     </connections>
                 </viewController>
@@ -132,6 +137,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Chicken1.png" width="363" height="314"/>
         <image name="buttonDown.jpg" width="338" height="340"/>
         <image name="buttonLeft.jpg" width="343" height="341"/>
         <image name="buttonRight.jpg" width="344" height="344"/>
