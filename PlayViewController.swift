@@ -38,9 +38,9 @@ class PlayViewController: UIViewController {
     }
     
     func timers(){
-        var timerMoveChicken = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: nil, repeats: true)
+        var timerMoveChicken = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: 55, repeats: true)
         var timerCheckCollision = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(intersect), userInfo: nil, repeats: true)
-        
+        var timerStopMoveChicken = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(stopTimerMoveChiken), userInfo: timerMoveChicken, repeats: false)
     }
     
     @IBAction func pushButtonUp(_ sender: Any) {
@@ -82,10 +82,17 @@ class PlayViewController: UIViewController {
                 self.imageHero.frame = frameTemp
             })
         }
-        moveChicken()
     }
     
-    func moveChicken(){
+    func stopTimerMoveChiken(timerTemp:Timer) {
+        let timer1 = timerTemp.userInfo as! Timer
+        guard timer1 != nil else { return }
+        timer1.invalidate()
+        //timer1 = nil
+    }
+    
+    func moveChicken(timer:Timer){
+        print(timer.userInfo as! Int)
         //up down motion of chicken
         if (imageChiecken1.frame.origin.y < 450 && !(imageChiecken1.frame.origin.y > 450) && !isUpward) {
             yChickenMotion = 6
@@ -102,13 +109,13 @@ class PlayViewController: UIViewController {
         if (imageChiecken1.frame.origin.x > 20 && !(imageChiecken1.frame.origin.x < 20) && !isRightward) {
             xChickenMotion = -4
            // print("1)")
-            print(xChickenMotion)
+            //print(xChickenMotion)
         }
         else if (imageChiecken1.frame.origin.x < 20){
             xChickenMotion = 4
             isRightward = true
            // print("2)")
-            print(xChickenMotion)
+            //print(xChickenMotion)
         }
         else if (imageChiecken1.frame.origin.x > 275) {
             isRightward = false
