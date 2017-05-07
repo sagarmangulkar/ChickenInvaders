@@ -70,6 +70,10 @@
                                             <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chicken1.png" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-nB-heZ">
+                                        <rect key="frame" x="241" y="107" width="65" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -127,7 +131,8 @@
                         <outlet property="buttonLeft" destination="voA-6e-HCJ" id="5cr-1H-QHd"/>
                         <outlet property="buttonRight" destination="6k7-ZI-5dJ" id="7KL-df-rZI"/>
                         <outlet property="buttonUp" destination="kYV-jk-Bq3" id="uq4-0W-Go8"/>
-                        <outlet property="imageChiecken1" destination="Hln-zh-BnG" id="QY4-8x-l9v"/>
+                        <outlet property="imageChicken1" destination="Hln-zh-BnG" id="d0b-oO-2Iz"/>
+                        <outlet property="imageChicken2" destination="mzg-nB-heZ" id="X37-di-RYQ"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
                     </connections>
                 </viewController>

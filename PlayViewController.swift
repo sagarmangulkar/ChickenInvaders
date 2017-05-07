@@ -10,7 +10,8 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
-    @IBOutlet var imageChiecken1: UIImageView!
+    @IBOutlet var imageChicken2: UIImageView!
+    @IBOutlet var imageChicken1: UIImageView!
     @IBOutlet var buttonLeft: UIButton!
     @IBOutlet var buttonUp: UIButton!
     @IBOutlet var buttonDown: UIButton!
@@ -21,6 +22,8 @@ class PlayViewController: UIViewController {
     var yChickenMotion = 0
     var isUpward = false
     var isRightward = false
+    private var timerMoveChicken1: Timer?
+    private var timerMoveChicken2: Timer?
     
     
     override func viewDidLoad() {
@@ -28,7 +31,7 @@ class PlayViewController: UIViewController {
         timers()
         //moveChicken()
         //moveChickenInCurveMotion()
-        
+        repeatTimers()
         
     }
     
@@ -37,10 +40,15 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func repeatTimers(){
+        var timerCheckCollision = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(timers), userInfo: nil, repeats: true)
+    }
+    
     func timers(){
-        var timerMoveChicken = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: 55, repeats: true)
+        timerMoveChicken1 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: imageChicken1, repeats: true)
         var timerCheckCollision = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(intersect), userInfo: nil, repeats: true)
-        var timerStopMoveChicken = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(stopTimerMoveChiken), userInfo: timerMoveChicken, repeats: false)
+        var timerStopMoveChicken1 = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(stopTimerMoveChicken1), userInfo: nil, repeats: false)
+        var timerStopMoveChicken2 = Timer.scheduledTimer(timeInterval: 12, target: self, selector: #selector(stopTimerMoveChicken2), userInfo: nil, repeats: false)
     }
     
     @IBAction func pushButtonUp(_ sender: Any) {
@@ -83,56 +91,71 @@ class PlayViewController: UIViewController {
             })
         }
     }
-    
-    func stopTimerMoveChiken(timerTemp:Timer) {
-        let timer1 = timerTemp.userInfo as! Timer
-        guard timer1 != nil else { return }
+    /*
+    func stopTimerMoveChicken(timerTemp:Timer) {
+        var timer1 = timerTemp.userInfo as! Timer
+        //    guard timer1 != nil else { return }
         timer1.invalidate()
         //timer1 = nil
     }
+    */
+    func stopTimerMoveChicken1() {
+        guard timerMoveChicken1 != nil else { return }
+        timerMoveChicken1?.invalidate()
+        timerMoveChicken1 = nil
+        
+        timerMoveChicken2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: imageChicken2, repeats: true)
+    }
+    
+    
+    func stopTimerMoveChicken2() {
+        guard timerMoveChicken2 != nil else { return }
+        timerMoveChicken2?.invalidate()
+        timerMoveChicken2 = nil
+    }
     
     func moveChicken(timer:Timer){
-        print(timer.userInfo as! Int)
         //up down motion of chicken
-        if (imageChiecken1.frame.origin.y < 450 && !(imageChiecken1.frame.origin.y > 450) && !isUpward) {
+        let imageTemp = timer.userInfo as! UIImageView
+        if (imageTemp.frame.origin.y < 450 && !(imageTemp.frame.origin.y > 450) && !isUpward) {
             yChickenMotion = 6
         }
-        else if (imageChiecken1.frame.origin.y > 450){
+        else if (imageTemp.frame.origin.y > 450){
             yChickenMotion = -6
             isUpward = true
         }
-        else if (imageChiecken1.frame.origin.y < 50) {
+        else if (imageTemp.frame.origin.y < 50) {
             isUpward = false
         }
- 
+        
         //left right motion of chicken
-        if (imageChiecken1.frame.origin.x > 20 && !(imageChiecken1.frame.origin.x < 20) && !isRightward) {
+        if (imageTemp.frame.origin.x > 20 && !(imageTemp.frame.origin.x < 20) && !isRightward) {
             xChickenMotion = -4
-           // print("1)")
+            // print("1)")
             //print(xChickenMotion)
         }
-        else if (imageChiecken1.frame.origin.x < 20){
+        else if (imageTemp.frame.origin.x < 20){
             xChickenMotion = 4
             isRightward = true
-           // print("2)")
+            // print("2)")
             //print(xChickenMotion)
         }
-        else if (imageChiecken1.frame.origin.x > 275) {
+        else if (imageTemp.frame.origin.x > 275) {
             isRightward = false
         }
- 
+        
         UIView.animate(withDuration: 0.05, animations: {
-            var frameTemp = self.imageChiecken1.frame
+            var frameTemp = imageTemp.frame
             frameTemp.origin.x = frameTemp.origin.x + CGFloat(self.xChickenMotion)
             frameTemp.origin.y = frameTemp.origin.y + CGFloat(self.yChickenMotion)
-            self.imageChiecken1.frame = frameTemp
+            imageTemp.frame = frameTemp
         })
         
     }
     
     func intersect(){
         //print(imageHero.layer.frame.origin.x)
-        if(imageChiecken1.layer.frame.intersects(imageHero.layer.frame)){
+        if(imageChicken1.layer.frame.intersects(imageHero.layer.frame)){
             print("Collide...!")
         }
     }
