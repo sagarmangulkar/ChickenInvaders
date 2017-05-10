@@ -22,8 +22,11 @@ class PlayViewController: UIViewController {
     var yChickenMotion = 0
     var isUpward = false
     var isRightward = false
+    var isAttacked = false
     private var timerMoveChicken1: Timer?
     private var timerMoveChicken2: Timer?
+    private var timerBlinkHero: Timer?
+    var i =  0
     
     
     override func viewDidLoad() {
@@ -46,7 +49,7 @@ class PlayViewController: UIViewController {
     
     func timers(){
         timerMoveChicken1 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: imageChicken1, repeats: true)
-        var timerCheckCollision = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(intersect), userInfo: nil, repeats: true)
+        var timerCheckCollision = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkCollisionBetweenHeroAndChicken), userInfo: nil, repeats: true)
         var timerStopMoveChicken1 = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(stopTimerMoveChicken1), userInfo: nil, repeats: false)
         var timerStopMoveChicken2 = Timer.scheduledTimer(timeInterval: 12, target: self, selector: #selector(stopTimerMoveChicken2), userInfo: nil, repeats: false)
     }
@@ -92,13 +95,13 @@ class PlayViewController: UIViewController {
         }
     }
     /*
-    func stopTimerMoveChicken(timerTemp:Timer) {
-        var timer1 = timerTemp.userInfo as! Timer
-        //    guard timer1 != nil else { return }
-        timer1.invalidate()
-        //timer1 = nil
-    }
-    */
+     func stopTimerMoveChicken(timerTemp:Timer) {
+     var timer1 = timerTemp.userInfo as! Timer
+     //    guard timer1 != nil else { return }
+     timer1.invalidate()
+     //timer1 = nil
+     }
+     */
     func stopTimerMoveChicken1() {
         guard timerMoveChicken1 != nil else { return }
         timerMoveChicken1?.invalidate()
@@ -114,6 +117,13 @@ class PlayViewController: UIViewController {
         timerMoveChicken2 = nil
     }
     
+    func stopTimerBlinkHero() {
+        guard timerBlinkHero != nil else { return }
+        timerBlinkHero?.invalidate()
+        timerBlinkHero = nil
+        isAttacked = false
+        imageHero.isHidden = false
+    }
     func moveChicken(timer:Timer){
         //up down motion of chicken
         let imageTemp = timer.userInfo as! UIImageView
@@ -153,10 +163,38 @@ class PlayViewController: UIViewController {
         
     }
     
-    func intersect(){
-        //print(imageHero.layer.frame.origin.x)
-        if(imageChicken1.layer.frame.intersects(imageHero.layer.frame)){
-            print("Collide...!")
+    /* func intersect(){
+     //print(imageHero.layer.frame.origin.x)
+     if(imageChicken1.layer.frame.intersects(imageHero.layer.frame)){
+     print("Collide...!")
+     }
+     }
+     */
+    func checkCollisionBetweenHeroAndChicken(){
+        if((imageHero.layer.frame.intersects(imageChicken1.layer.frame) && (!imageChicken1.isHidden)) || (imageHero.layer.frame.intersects(imageChicken2.layer.frame)) && (!imageChicken2.isHidden)){
+            if(!imageHero.isHidden && !isAttacked){
+                print("Collide...!")
+                isAttacked = true
+                lowerHealth()
+            }
+        }
+    }
+    
+    func lowerHealth(){
+        i = 0
+         timerBlinkHero = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(blinkHero), userInfo: nil, repeats: true)
+    }
+    
+    func blinkHero(){
+        i += 1
+        if(imageHero.isHidden){
+            imageHero.isHidden = false
+        }
+        else if(!imageHero.isHidden){
+            imageHero.isHidden = true
+        }
+        if(i == 7){
+            stopTimerBlinkHero()
         }
     }
 }
