@@ -10,6 +10,7 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var imageTesting: UIImageView!
     @IBOutlet var buttonAttackSingleGunShot: UIButton!
     @IBOutlet var imageAttackSingleGunShot: UIImageView!
     @IBOutlet var imageHealthHero: UIImageView!
@@ -42,6 +43,8 @@ class PlayViewController: UIViewController {
         //moveChickenInCurveMotion()
         repeatTimers()
         startingState()
+        //imageTesting.loadGif(name:"blast")
+
     }
     
     func startingState(){
@@ -237,7 +240,7 @@ class PlayViewController: UIViewController {
     func checkCollisionBetweenAttackShootAndChicken(){
         if((imageAttackSingleGunShot.layer.frame.intersects(imageChicken1.layer.frame) && (!imageChicken1.isHidden))){
             if(!imageAttackSingleGunShot.isHidden){
-                print("Collide with shoot...!")
+                print("Collide with gun shoot...!")
                 killChicken(imageTemp: imageChicken1)
             }
         }
@@ -252,6 +255,9 @@ class PlayViewController: UIViewController {
     
     func killChicken(imageTemp: UIImageView){
         imageTemp.isHidden = true
+        
+        
+        
     }
     
     func blinkHero(){

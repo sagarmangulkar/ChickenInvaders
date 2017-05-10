@@ -78,16 +78,13 @@
                                         <rect key="frame" x="165" y="434" width="22" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtM-UZ-Wav">
+                                        <rect key="frame" x="46" y="224" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0q-cc-Oke">
-                                <rect key="frame" x="134" y="61" width="105" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXA-qa-xLI" userLabel="NavigationPannelView" colorLabel="IBBuiltInLabel-Red">
                                 <rect key="frame" x="0.0" y="550" width="375" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -153,6 +150,7 @@
                         <outlet property="imageChicken2" destination="mzg-nB-heZ" id="X37-di-RYQ"/>
                         <outlet property="imageHealthHero" destination="AJJ-r4-Ydp" id="2Eg-Fu-3sS"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
+                        <outlet property="imageTesting" destination="MtM-UZ-Wav" id="eMj-Mz-FLA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktU-oT-6Pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
