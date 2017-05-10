@@ -10,6 +10,8 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var buttonAttackSingleGunShot: UIButton!
+    @IBOutlet var imageAttackSingleGunShot: UIImageView!
     @IBOutlet var imageHealthHero: UIImageView!
     @IBOutlet var imageChicken2: UIImageView!
     @IBOutlet var imageChicken1: UIImageView!
@@ -27,6 +29,8 @@ class PlayViewController: UIViewController {
     private var timerMoveChicken1: Timer?
     private var timerMoveChicken2: Timer?
     private var timerBlinkHero: Timer?
+    private var timerAttack: Timer?
+
     var i =  0
     var healthHero = 100
     
@@ -42,6 +46,7 @@ class PlayViewController: UIViewController {
     
     func startingState(){
         imageHealthHero.image = UIImage(named:"healthbar_100.png")
+        imageAttackSingleGunShot.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,6 +105,12 @@ class PlayViewController: UIViewController {
             })
         }
     }
+    
+    
+    @IBAction func pushButtonAttackSingleGunShot(_ sender: Any) {
+        startTimerAttack(timeTemp: 0.05)
+    }
+    
     /*
      func stopTimerMoveChicken(timerTemp:Timer) {
      var timer1 = timerTemp.userInfo as! Timer
@@ -130,6 +141,22 @@ class PlayViewController: UIViewController {
         isAttacked = false
         imageHero.isHidden = false
     }
+    
+    func startTimerAttack(timeTemp: Double)-> Void {
+        guard timerAttack == nil else { return }
+        imageAttackSingleGunShot.isHidden = false
+        imageAttackSingleGunShot.frame.origin.x = imageHero.frame.origin.x + 20
+        imageAttackSingleGunShot.frame.origin.y = imageHero.frame.origin.y
+        timerAttack = Timer.scheduledTimer(timeInterval: timeTemp, target: self, selector: #selector(attack), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimerAttack() {
+        guard timerAttack != nil else { return }
+        timerAttack?.invalidate()
+        timerAttack = nil
+        imageAttackSingleGunShot.isHidden = true
+    }
+    
     func moveChicken(timer:Timer){
         //up down motion of chicken
         let imageTemp = timer.userInfo as! UIImageView
@@ -169,6 +196,26 @@ class PlayViewController: UIViewController {
         
     }
     
+    func attack(){
+        UIView.animate(withDuration: 0.05, animations: {
+            var frameTemp = self.imageAttackSingleGunShot.frame
+            frameTemp.origin.y = frameTemp.origin.y - 20
+            self.imageAttackSingleGunShot.frame = frameTemp
+        },completion:{
+            (finished: Bool) in
+            if(self.imageAttackSingleGunShot.frame.origin.y < -100){
+                UIView.animate(withDuration: 0, animations: {
+                    var frameTemp = self.imageAttackSingleGunShot.frame
+                    frameTemp.origin.y = 400
+                    self.imageAttackSingleGunShot.frame = frameTemp
+                    self.stopTimerAttack()
+                })
+            }
+        })
+    }
+    
+    
+    
     /* func intersect(){
      //print(imageHero.layer.frame.origin.x)
      if(imageChicken1.layer.frame.intersects(imageHero.layer.frame)){
@@ -184,7 +231,29 @@ class PlayViewController: UIViewController {
                 lowerHealth()
             }
         }
+        checkCollisionBetweenAttackShootAndChicken()
     }
+    
+    func checkCollisionBetweenAttackShootAndChicken(){
+        if((imageAttackSingleGunShot.layer.frame.intersects(imageChicken1.layer.frame) && (!imageChicken1.isHidden))){
+            if(!imageAttackSingleGunShot.isHidden){
+                print("Collide with shoot...!")
+                killChicken(imageTemp: imageChicken1)
+            }
+        }
+        
+        if((imageAttackSingleGunShot.layer.frame.intersects(imageChicken2.layer.frame)) && (!imageChicken2.isHidden)){
+            if(!imageAttackSingleGunShot.isHidden){
+                print("Collide with shoot...!")
+                killChicken(imageTemp: imageChicken2)
+            }
+        }
+    }
+    
+    func killChicken(imageTemp: UIImageView){
+        imageTemp.isHidden = true
+    }
+    
     func blinkHero(){
         i += 1
         if(imageHero.isHidden){
