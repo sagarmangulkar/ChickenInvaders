@@ -10,6 +10,7 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var imageHealthHero: UIImageView!
     @IBOutlet var imageChicken2: UIImageView!
     @IBOutlet var imageChicken1: UIImageView!
     @IBOutlet var buttonLeft: UIButton!
@@ -27,6 +28,7 @@ class PlayViewController: UIViewController {
     private var timerMoveChicken2: Timer?
     private var timerBlinkHero: Timer?
     var i =  0
+    var healthHero = 100
     
     
     override func viewDidLoad() {
@@ -35,7 +37,11 @@ class PlayViewController: UIViewController {
         //moveChicken()
         //moveChickenInCurveMotion()
         repeatTimers()
-        
+        startingState()
+    }
+    
+    func startingState(){
+        imageHealthHero.image = UIImage(named:"healthbar_100.png")
     }
     
     override func didReceiveMemoryWarning() {
@@ -179,12 +185,6 @@ class PlayViewController: UIViewController {
             }
         }
     }
-    
-    func lowerHealth(){
-        i = 0
-         timerBlinkHero = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(blinkHero), userInfo: nil, repeats: true)
-    }
-    
     func blinkHero(){
         i += 1
         if(imageHero.isHidden){
@@ -197,4 +197,28 @@ class PlayViewController: UIViewController {
             stopTimerBlinkHero()
         }
     }
+    
+    func lowerHealth(){
+        i = 0
+        timerBlinkHero = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(blinkHero), userInfo: nil, repeats: true)
+        print("Attack on Hero...!")
+        healthHero -= 25
+        if(healthHero == 100){
+            imageHealthHero.image = UIImage(named:"healthbar_100.png")
+        }
+        else if(healthHero == 75){
+            imageHealthHero.image = UIImage(named:"healthbar_75.png")
+        }
+        else if(healthHero == 50){
+            imageHealthHero.image = UIImage(named:"healthbar_50.png")
+        }
+        else if(healthHero == 25){
+            imageHealthHero.image = UIImage(named:"healthbar_25.png")
+        }
+        else if(healthHero == 0){
+            imageHealthHero.image = UIImage(named:"healthbar_00.png")
+        }
+    }
+    
+    
 }

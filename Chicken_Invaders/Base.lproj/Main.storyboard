@@ -89,7 +89,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voA-6e-HCJ">
-                                        <rect key="frame" x="25" y="23" width="65" height="67"/>
+                                        <rect key="frame" x="68" y="38" width="65" height="67"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonLeft.jpg"/>
                                         <connections>
@@ -97,7 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-jk-Bq3">
-                                        <rect key="frame" x="138" y="3" width="87" height="53"/>
+                                        <rect key="frame" x="138" y="38" width="87" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonUp.jpg"/>
                                         <connections>
@@ -105,7 +105,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k7-ZI-5dJ">
-                                        <rect key="frame" x="271" y="31" width="76" height="59"/>
+                                        <rect key="frame" x="230" y="41" width="76" height="59"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonRight.jpg"/>
                                         <connections>
@@ -113,13 +113,17 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHb-h2-yGW">
-                                        <rect key="frame" x="138" y="64" width="87" height="45"/>
+                                        <rect key="frame" x="138" y="75" width="87" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonDown.jpg"/>
                                         <connections>
                                             <action selector="pushButtonDown:" destination="INL-h3-c2f" eventType="touchUpInside" id="sOP-43-ALj"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="healthbar_100.png" translatesAutoresizingMaskIntoConstraints="NO" id="AJJ-r4-Ydp">
+                                        <rect key="frame" x="2" y="8" width="178" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66404156130000003" green="0.49277341670000002" blue="0.77233993239999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -133,6 +137,7 @@
                         <outlet property="buttonUp" destination="kYV-jk-Bq3" id="uq4-0W-Go8"/>
                         <outlet property="imageChicken1" destination="Hln-zh-BnG" id="d0b-oO-2Iz"/>
                         <outlet property="imageChicken2" destination="mzg-nB-heZ" id="X37-di-RYQ"/>
+                        <outlet property="imageHealthHero" destination="AJJ-r4-Ydp" id="2Eg-Fu-3sS"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
                     </connections>
                 </viewController>
@@ -147,6 +152,7 @@
         <image name="buttonLeft.jpg" width="343" height="341"/>
         <image name="buttonRight.jpg" width="344" height="344"/>
         <image name="buttonUp.jpg" width="341" height="342"/>
+        <image name="healthbar_100.png" width="161" height="37"/>
         <image name="hero_plane.png" width="720" height="713"/>
     </resources>
 </document>
