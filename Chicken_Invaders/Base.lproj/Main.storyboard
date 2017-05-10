@@ -78,10 +78,6 @@
                                         <rect key="frame" x="165" y="434" width="22" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtM-UZ-Wav">
-                                        <rect key="frame" x="46" y="224" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -150,7 +146,6 @@
                         <outlet property="imageChicken2" destination="mzg-nB-heZ" id="X37-di-RYQ"/>
                         <outlet property="imageHealthHero" destination="AJJ-r4-Ydp" id="2Eg-Fu-3sS"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
-                        <outlet property="imageTesting" destination="MtM-UZ-Wav" id="eMj-Mz-FLA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktU-oT-6Pv" userLabel="First Responder" sceneMemberID="firstResponder"/>

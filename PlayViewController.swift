@@ -10,7 +10,6 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
-    @IBOutlet var imageTesting: UIImageView!
     @IBOutlet var buttonAttackSingleGunShot: UIButton!
     @IBOutlet var imageAttackSingleGunShot: UIImageView!
     @IBOutlet var imageHealthHero: UIImageView!
@@ -31,6 +30,7 @@ class PlayViewController: UIViewController {
     private var timerMoveChicken2: Timer?
     private var timerBlinkHero: Timer?
     private var timerAttack: Timer?
+    private var timerHideBlast: Timer?
 
     var i =  0
     var healthHero = 100
@@ -160,6 +160,20 @@ class PlayViewController: UIViewController {
         imageAttackSingleGunShot.isHidden = true
     }
     
+    func startTimerHideBlast(timeTemp: Double, imageTemp: UIImageView)-> Void {
+        print("Inside Timer...1")
+        // guard timerHideBlastJoker == nil else { return }
+        timerHideBlast = Timer.scheduledTimer(timeInterval: timeTemp, target: self, selector: #selector(hideBlast), userInfo: imageTemp, repeats: false)
+    }
+    
+    func hideBlast(timer:Timer?){
+        print("Hiding....!")
+        let imageTemp = timer?.userInfo as! UIImageView
+        imageTemp.isHidden = true
+    }
+    
+    
+    
     func moveChicken(timer:Timer){
         //up down motion of chicken
         let imageTemp = timer.userInfo as! UIImageView
@@ -254,9 +268,11 @@ class PlayViewController: UIViewController {
     }
     
     func killChicken(imageTemp: UIImageView){
-        imageTemp.isHidden = true
+        //imageTemp.isHidden = true
         
-        
+        imageTemp.loadGif(name:"blast")
+        startTimerHideBlast(timeTemp: 1.2, imageTemp: imageTemp)
+        print("Chicken killed...!")
         
     }
     
