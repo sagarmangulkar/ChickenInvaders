@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayViewController.swift"
-            timestampString = "516145209.389254"
+            timestampString = "516146615.398481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "moveChicken(timer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayViewController.swift"
-            timestampString = "516145209.389254"
+            timestampString = "516146615.398481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "releaseEgg(timer:)"
             landmarkType = "7">
          </BreakpointContent>

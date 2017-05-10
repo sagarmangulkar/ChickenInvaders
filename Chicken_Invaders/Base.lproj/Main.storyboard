@@ -21,11 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZW-bg-1va">
-                                <rect key="frame" x="131" y="227" width="112" height="54"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starting_background3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6D9-zX-jUv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Start"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZW-bg-1va">
+                                <rect key="frame" x="113" y="285" width="149" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="start_button.png"/>
                                 <connections>
                                     <segue destination="INL-h3-c2f" kind="presentation" id="Zw8-0d-dMy"/>
                                 </connections>
@@ -54,6 +57,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Play_Background_Space.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-Zj-Nsx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="556"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hero_plane.png" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-Ps-Gcf">
                                         <rect key="frame" x="136" y="466" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,10 +69,10 @@
                                         <rect key="frame" x="136" y="114" width="65" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-hz-7qW">
-                                        <rect key="frame" x="0.0" y="30" width="34" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-hz-7qW">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Back"/>
+                                        <state key="normal" image="button_exit.ico"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
                                         </connections>
@@ -160,14 +167,18 @@
     </scenes>
     <resources>
         <image name="Chicken1.png" width="363" height="314"/>
+        <image name="Play_Background_Space.jpg" width="1920" height="1080"/>
         <image name="attack_single_gun_shoot.png" width="128" height="128"/>
         <image name="buttonDown.jpg" width="338" height="340"/>
         <image name="buttonLeft.jpg" width="343" height="341"/>
         <image name="buttonRight.jpg" width="344" height="344"/>
         <image name="buttonUp.jpg" width="341" height="342"/>
         <image name="button_Attack.png" width="300" height="300"/>
+        <image name="button_exit.ico" width="256" height="256"/>
         <image name="egg.png" width="958" height="1317"/>
         <image name="healthbar_100.png" width="161" height="37"/>
         <image name="hero_plane.png" width="720" height="713"/>
+        <image name="start_button.png" width="315" height="149"/>
+        <image name="starting_background3.jpg" width="497" height="400"/>
     </resources>
 </document>

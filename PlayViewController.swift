@@ -182,7 +182,7 @@ class PlayViewController: UIViewController {
         if(!imageChicken1.isHidden && !imageChicken2.isHidden){
             imageEgg1.isHidden = false
         }
-        else{
+        else if(imageChicken1.isHidden && imageChicken2.isHidden){
             imageEgg1.isHidden = true
         }
         timerReleaseEgg = Timer.scheduledTimer(timeInterval: timeTemp, target: self, selector: #selector(releaseEgg), userInfo: imageTemp, repeats: true)
