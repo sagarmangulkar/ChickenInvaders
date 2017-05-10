@@ -23,6 +23,8 @@
 		52447DD11EC2F63500C759A2 /* attack_single_gun_shoot.png in Resources */ = {isa = PBXBuildFile; fileRef = 52447DD01EC2F63500C759A2 /* attack_single_gun_shoot.png */; };
 		52447DD51EC3897200C759A2 /* Swift+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52447DD41EC3897200C759A2 /* Swift+Gif.swift */; };
 		52447DD71EC3932100C759A2 /* blast.gif in Resources */ = {isa = PBXBuildFile; fileRef = 52447DD61EC3932100C759A2 /* blast.gif */; };
+		52447DDB1EC3B02600C759A2 /* egg_without_shell.png in Resources */ = {isa = PBXBuildFile; fileRef = 52447DD91EC3B02600C759A2 /* egg_without_shell.png */; };
+		52447DDD1EC3B0DE00C759A2 /* egg.png in Resources */ = {isa = PBXBuildFile; fileRef = 52447DDC1EC3B0DE00C759A2 /* egg.png */; };
 		52B61E691EBFACEB00771BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B61E681EBFACEB00771BD9 /* AppDelegate.swift */; };
 		52B61E6B1EBFACEB00771BD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B61E6A1EBFACEB00771BD9 /* ViewController.swift */; };
 		52B61E6E1EBFACEB00771BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B61E6C1EBFACEB00771BD9 /* Main.storyboard */; };
@@ -66,6 +68,8 @@
 		52447DD01EC2F63500C759A2 /* attack_single_gun_shoot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attack_single_gun_shoot.png; sourceTree = "<group>"; };
 		52447DD41EC3897200C759A2 /* Swift+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swift+Gif.swift"; sourceTree = "<group>"; };
 		52447DD61EC3932100C759A2 /* blast.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = blast.gif; sourceTree = SOURCE_ROOT; };
+		52447DD91EC3B02600C759A2 /* egg_without_shell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egg_without_shell.png; sourceTree = SOURCE_ROOT; };
+		52447DDC1EC3B0DE00C759A2 /* egg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egg.png; sourceTree = "<group>"; };
 		52B61E651EBFACEB00771BD9 /* Chicken_Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chicken_Invaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B61E681EBFACEB00771BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B61E6A1EBFACEB00771BD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		52447DB71EC15F6000C759A2 /* Supporting_files */ = {
 			isa = PBXGroup;
 			children = (
+				52447DDC1EC3B0DE00C759A2 /* egg.png */,
+				52447DD91EC3B02600C759A2 /* egg_without_shell.png */,
 				52447DD61EC3932100C759A2 /* blast.gif */,
 				52447DD01EC2F63500C759A2 /* attack_single_gun_shoot.png */,
 				52447DCC1EC2F38700C759A2 /* button_Attack.png */,
@@ -300,10 +306,12 @@
 				52447DB61EC15F5300C759A2 /* hero_plane.png in Resources */,
 				52447DBD1EC161A300C759A2 /* buttonLeft.jpg in Resources */,
 				52447DC71EC2E4F900C759A2 /* healthbar_50.png in Resources */,
+				52447DDD1EC3B0DE00C759A2 /* egg.png in Resources */,
 				52B61E6E1EBFACEB00771BD9 /* Main.storyboard in Resources */,
 				52447DD11EC2F63500C759A2 /* attack_single_gun_shoot.png in Resources */,
 				52447DCB1EC2E8C200C759A2 /* healthbar_00.png in Resources */,
 				52447DD71EC3932100C759A2 /* blast.gif in Resources */,
+				52447DDB1EC3B02600C759A2 /* egg_without_shell.png in Resources */,
 				52447DC61EC2E4F900C759A2 /* healthbar_25.png in Resources */,
 				52447DC11EC19D0400C759A2 /* Chicken1.png in Resources */,
 			);

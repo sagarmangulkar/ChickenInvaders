@@ -10,6 +10,7 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var imageEgg1: UIImageView!
     @IBOutlet var buttonAttackSingleGunShot: UIButton!
     @IBOutlet var imageAttackSingleGunShot: UIImageView!
     @IBOutlet var imageHealthHero: UIImageView!
@@ -26,12 +27,14 @@ class PlayViewController: UIViewController {
     var isUpward = false
     var isRightward = false
     var isAttacked = false
+    var isChicken1 = true
     private var timerMoveChicken1: Timer?
     private var timerMoveChicken2: Timer?
     private var timerBlinkHero: Timer?
     private var timerAttack: Timer?
     private var timerHideBlast: Timer?
-
+    private var timerReleaseEgg: Timer?
+    
     var i =  0
     var healthHero = 100
     
@@ -43,8 +46,12 @@ class PlayViewController: UIViewController {
         //moveChickenInCurveMotion()
         repeatTimers()
         startingState()
-        //imageTesting.loadGif(name:"blast")
-
+        releaseEggs()
+    }
+    
+    func releaseEggs(){
+        startTimerReleaseEgg(timeTemp: 0.05, imageTemp: imageEgg1)
+        
     }
     
     func startingState(){
@@ -114,20 +121,15 @@ class PlayViewController: UIViewController {
         startTimerAttack(timeTemp: 0.05)
     }
     
-    /*
-     func stopTimerMoveChicken(timerTemp:Timer) {
-     var timer1 = timerTemp.userInfo as! Timer
-     //    guard timer1 != nil else { return }
-     timer1.invalidate()
-     //timer1 = nil
-     }
-     */
+
     func stopTimerMoveChicken1() {
         guard timerMoveChicken1 != nil else { return }
         timerMoveChicken1?.invalidate()
         timerMoveChicken1 = nil
         
         timerMoveChicken2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: imageChicken2, repeats: true)
+        releaseEggs()
+
     }
     
     
@@ -135,6 +137,8 @@ class PlayViewController: UIViewController {
         guard timerMoveChicken2 != nil else { return }
         timerMoveChicken2?.invalidate()
         timerMoveChicken2 = nil
+        releaseEggs()
+
     }
     
     func stopTimerBlinkHero() {
@@ -158,6 +162,37 @@ class PlayViewController: UIViewController {
         timerAttack?.invalidate()
         timerAttack = nil
         imageAttackSingleGunShot.isHidden = true
+    }
+    
+    func startTimerReleaseEgg(timeTemp: Double, imageTemp: UIImageView)-> Void {
+        guard timerReleaseEgg == nil else { return }
+        imageTemp.isHidden = false
+        
+        if(!imageChicken1.isHidden && isChicken1){
+            imageTemp.frame.origin.x = imageChicken1.frame.origin.x + 20
+            imageTemp.frame.origin.y = imageChicken1.frame.origin.y + 40
+            isChicken1 = false
+        }
+        else if(!imageChicken1.isHidden && !isChicken1){
+            imageTemp.frame.origin.x = imageChicken2.frame.origin.x + 20
+            imageTemp.frame.origin.y = imageChicken2.frame.origin.y + 40
+            isChicken1 = true
+        }
+        
+        if(!imageChicken1.isHidden && !imageChicken2.isHidden){
+            imageEgg1.isHidden = false
+        }
+        else{
+            imageEgg1.isHidden = true
+        }
+        timerReleaseEgg = Timer.scheduledTimer(timeInterval: timeTemp, target: self, selector: #selector(releaseEgg), userInfo: imageTemp, repeats: true)
+    }
+    
+    func stopTimerReleaseEgg(imageTemp:UIImageView) {
+        guard timerReleaseEgg != nil else { return }
+        timerReleaseEgg?.invalidate()
+        timerReleaseEgg = nil
+        imageTemp.isHidden = true
     }
     
     func startTimerHideBlast(timeTemp: Double, imageTemp: UIImageView)-> Void {
@@ -231,6 +266,25 @@ class PlayViewController: UIViewController {
         })
     }
     
+    func releaseEgg(timer:Timer?){
+        let imageTemp = timer?.userInfo as! UIImageView
+        UIView.animate(withDuration: 0.05, animations: {
+            var frameTemp = imageTemp.frame
+            frameTemp.origin.y = frameTemp.origin.y + 10
+            imageTemp.frame = frameTemp
+        },completion:{
+            (finished: Bool) in
+            if(imageTemp.frame.origin.y > 600){
+                UIView.animate(withDuration: 0, animations: {
+                    var frameTemp = imageTemp.frame
+                    frameTemp.origin.y = 100
+                    imageTemp.frame = frameTemp
+                    self.stopTimerReleaseEgg(imageTemp: imageTemp)
+                })
+            }
+        })
+    }
+    
     
     
     /* func intersect(){
@@ -248,8 +302,19 @@ class PlayViewController: UIViewController {
                 lowerHealth()
             }
         }
+        
+        if(imageHero.layer.frame.intersects(imageEgg1.layer.frame)) && (!imageEgg1.isHidden){
+            if(!imageHero.isHidden && !isAttacked){
+                print("Hero Collide with Egg...!")
+                isAttacked = true
+                lowerHealth()
+                imageEgg1.isHidden = true
+            }
+        }
+
         checkCollisionBetweenAttackShootAndChicken()
     }
+    
     
     func checkCollisionBetweenAttackShootAndChicken(){
         if((imageAttackSingleGunShot.layer.frame.intersects(imageChicken1.layer.frame) && (!imageChicken1.isHidden))){
@@ -272,6 +337,7 @@ class PlayViewController: UIViewController {
         
         imageTemp.loadGif(name:"blast")
         startTimerHideBlast(timeTemp: 1.2, imageTemp: imageTemp)
+        imageAttackSingleGunShot.isHidden = true
         print("Chicken killed...!")
         
     }

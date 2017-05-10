@@ -78,6 +78,10 @@
                                         <rect key="frame" x="165" y="434" width="22" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="egg.png" translatesAutoresizingMaskIntoConstraints="NO" id="eYe-MO-Eth">
+                                        <rect key="frame" x="122" y="238" width="20" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -144,6 +148,7 @@
                         <outlet property="imageAttackSingleGunShot" destination="gYc-Vz-QiK" id="dUN-xg-dVZ"/>
                         <outlet property="imageChicken1" destination="Hln-zh-BnG" id="d0b-oO-2Iz"/>
                         <outlet property="imageChicken2" destination="mzg-nB-heZ" id="X37-di-RYQ"/>
+                        <outlet property="imageEgg1" destination="eYe-MO-Eth" id="jnV-ho-M5y"/>
                         <outlet property="imageHealthHero" destination="AJJ-r4-Ydp" id="2Eg-Fu-3sS"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
                     </connections>
@@ -161,6 +166,7 @@
         <image name="buttonRight.jpg" width="344" height="344"/>
         <image name="buttonUp.jpg" width="341" height="342"/>
         <image name="button_Attack.png" width="300" height="300"/>
+        <image name="egg.png" width="958" height="1317"/>
         <image name="healthbar_100.png" width="161" height="37"/>
         <image name="hero_plane.png" width="720" height="713"/>
     </resources>
