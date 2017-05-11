@@ -61,6 +61,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="556"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="next_level.png" translatesAutoresizingMaskIntoConstraints="NO" id="gAM-R7-6b5">
+                                        <rect key="frame" x="74" y="238" width="226" height="89"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hero_plane.png" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-Ps-Gcf">
                                         <rect key="frame" x="136" y="466" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,6 +93,10 @@
                                         <rect key="frame" x="122" y="238" width="20" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chicken1.png" translatesAutoresizingMaskIntoConstraints="NO" id="cUF-c6-Vxa">
+                                        <rect key="frame" x="53" y="33" width="65" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -96,14 +104,10 @@
                                 <rect key="frame" x="0.0" y="550" width="375" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voA-6e-HCJ">
-                                        <rect key="frame" x="0.0" y="68" width="68" height="49"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="panel_background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Fpo-U8-T7M">
+                                        <rect key="frame" x="-1" y="0.0" width="376" height="117"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="buttonLeft.jpg"/>
-                                        <connections>
-                                            <action selector="pushButtonLeft:" destination="INL-h3-c2f" eventType="touchUpInside" id="cDf-j4-5br"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-jk-Bq3">
                                         <rect key="frame" x="138" y="0.0" width="87" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -113,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k7-ZI-5dJ">
-                                        <rect key="frame" x="299" y="54" width="76" height="64"/>
+                                        <rect key="frame" x="225" y="33" width="75" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="buttonRight.jpg"/>
                                         <connections>
@@ -133,11 +137,19 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdN-vf-2S9">
-                                        <rect key="frame" x="233" y="0.0" width="63" height="51"/>
+                                        <rect key="frame" x="150" y="33" width="63" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="button_Attack.png"/>
                                         <connections>
                                             <action selector="pushButtonAttackSingleGunShot:" destination="INL-h3-c2f" eventType="touchUpInside" id="ixS-gT-tMU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voA-6e-HCJ">
+                                        <rect key="frame" x="69" y="33" width="68" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="buttonLeft.jpg"/>
+                                        <connections>
+                                            <action selector="pushButtonLeft:" destination="INL-h3-c2f" eventType="touchUpInside" id="cDf-j4-5br"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -155,9 +167,11 @@
                         <outlet property="imageAttackSingleGunShot" destination="gYc-Vz-QiK" id="dUN-xg-dVZ"/>
                         <outlet property="imageChicken1" destination="Hln-zh-BnG" id="d0b-oO-2Iz"/>
                         <outlet property="imageChicken2" destination="mzg-nB-heZ" id="X37-di-RYQ"/>
+                        <outlet property="imageChicken3" destination="cUF-c6-Vxa" id="TQT-Q1-VYZ"/>
                         <outlet property="imageEgg1" destination="eYe-MO-Eth" id="jnV-ho-M5y"/>
                         <outlet property="imageHealthHero" destination="AJJ-r4-Ydp" id="2Eg-Fu-3sS"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
+                        <outlet property="imageNextLevel" destination="gAM-R7-6b5" id="kNC-Qy-Abc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktU-oT-6Pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,6 +192,8 @@
         <image name="egg.png" width="958" height="1317"/>
         <image name="healthbar_100.png" width="161" height="37"/>
         <image name="hero_plane.png" width="720" height="713"/>
+        <image name="next_level.png" width="618" height="348"/>
+        <image name="panel_background.jpg" width="284" height="177"/>
         <image name="start_button.png" width="315" height="149"/>
         <image name="starting_background3.jpg" width="497" height="400"/>
     </resources>

@@ -10,6 +10,8 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var imageNextLevel: UIImageView!
+    @IBOutlet var imageChicken3: UIImageView!
     @IBOutlet var imageEgg1: UIImageView!
     @IBOutlet var buttonAttackSingleGunShot: UIButton!
     @IBOutlet var imageAttackSingleGunShot: UIImageView!
@@ -30,10 +32,12 @@ class PlayViewController: UIViewController {
     var isChicken1 = true
     private var timerMoveChicken1: Timer?
     private var timerMoveChicken2: Timer?
+    private var timerMoveChicken3: Timer?
     private var timerBlinkHero: Timer?
     private var timerAttack: Timer?
     private var timerHideBlast: Timer?
     private var timerReleaseEgg: Timer?
+    var levelCount = 0
     
     var i =  0
     var healthHero = 100
@@ -57,6 +61,13 @@ class PlayViewController: UIViewController {
     func startingState(){
         imageHealthHero.image = UIImage(named:"healthbar_100.png")
         imageAttackSingleGunShot.isHidden = true
+        imageChicken1.frame.origin.y = -600
+        imageChicken2.frame.origin.y = -600
+        imageChicken3.frame.origin.y = -600
+        imageChicken1.isHidden = false
+        imageChicken2.isHidden = true
+        imageChicken3.isHidden = true
+        imageNextLevel.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,7 +76,7 @@ class PlayViewController: UIViewController {
     }
     
     func repeatTimers(){
-        var timerCheckCollision = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(timers), userInfo: nil, repeats: true)
+        var timerCheckCollision = Timer.scheduledTimer(timeInterval: 19, target: self, selector: #selector(timers), userInfo: nil, repeats: true)
     }
     
     func timers(){
@@ -73,6 +84,7 @@ class PlayViewController: UIViewController {
         var timerCheckCollision = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkCollisionBetweenHeroAndChicken), userInfo: nil, repeats: true)
         var timerStopMoveChicken1 = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(stopTimerMoveChicken1), userInfo: nil, repeats: false)
         var timerStopMoveChicken2 = Timer.scheduledTimer(timeInterval: 12, target: self, selector: #selector(stopTimerMoveChicken2), userInfo: nil, repeats: false)
+         var timerStopMoveChicken3 = Timer.scheduledTimer(timeInterval: 18, target: self, selector: #selector(stopTimerMoveChicken3), userInfo: nil, repeats: false)
     }
     
     @IBAction func pushButtonUp(_ sender: Any) {
@@ -130,6 +142,8 @@ class PlayViewController: UIViewController {
         timerMoveChicken2 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: imageChicken2, repeats: true)
         releaseEggs()
 
+        imageNextLevel.isHidden = true
+        buttonAttackSingleGunShot.isHidden = false
     }
     
     
@@ -138,7 +152,18 @@ class PlayViewController: UIViewController {
         timerMoveChicken2?.invalidate()
         timerMoveChicken2 = nil
         releaseEggs()
+        timerMoveChicken3 = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(moveChicken), userInfo: imageChicken3, repeats: true)
+        releaseEggs()
 
+    }
+    
+    
+    func stopTimerMoveChicken3() {
+        guard timerMoveChicken3 != nil else { return }
+        timerMoveChicken3?.invalidate()
+        timerMoveChicken3 = nil
+        releaseEggs()
+        
     }
     
     func stopTimerBlinkHero() {
@@ -168,15 +193,41 @@ class PlayViewController: UIViewController {
         guard timerReleaseEgg == nil else { return }
         imageTemp.isHidden = false
         
-        if(!imageChicken1.isHidden && isChicken1){
-            imageTemp.frame.origin.x = imageChicken1.frame.origin.x + 20
-            imageTemp.frame.origin.y = imageChicken1.frame.origin.y + 40
+        if(isChicken1){
             isChicken1 = false
+            if(!imageChicken1.isHidden){
+                imageTemp.frame.origin.x = imageChicken1.frame.origin.x + 20
+                imageTemp.frame.origin.y = imageChicken1.frame.origin.y + 40
+            }
+            else{
+                imageTemp.frame.origin.x = imageChicken2.frame.origin.x + 20
+                imageTemp.frame.origin.y = imageChicken2.frame.origin.y + 40
+            }
         }
-        else if(!imageChicken1.isHidden && !isChicken1){
-            imageTemp.frame.origin.x = imageChicken2.frame.origin.x + 20
-            imageTemp.frame.origin.y = imageChicken2.frame.origin.y + 40
+        else if(!isChicken1){
             isChicken1 = true
+            if(!imageChicken2.isHidden){
+                imageTemp.frame.origin.x = imageChicken2.frame.origin.x + 20
+                imageTemp.frame.origin.y = imageChicken2.frame.origin.y + 40
+            }
+            else{
+                imageTemp.frame.origin.x = imageChicken1.frame.origin.x + 20
+                imageTemp.frame.origin.y = imageChicken1.frame.origin.y + 40
+            }
+        }
+        else{
+            if(!imageChicken3.isHidden){
+                imageTemp.frame.origin.x = imageChicken3.frame.origin.x + 20
+                imageTemp.frame.origin.y = imageChicken3.frame.origin.y + 40
+            }
+            if(!imageChicken1.isHidden){
+                imageTemp.frame.origin.x = imageChicken1.frame.origin.x + 20
+                imageTemp.frame.origin.y = imageChicken1.frame.origin.y + 40
+            }
+            if(!imageChicken2.isHidden){
+                imageTemp.frame.origin.x = imageChicken2.frame.origin.x + 20
+                imageTemp.frame.origin.y = imageChicken2.frame.origin.y + 40
+            }
         }
         
         if(!imageChicken1.isHidden && !imageChicken2.isHidden){
@@ -205,6 +256,7 @@ class PlayViewController: UIViewController {
         print("Hiding....!")
         let imageTemp = timer?.userInfo as! UIImageView
         imageTemp.isHidden = true
+        imageTemp.image = UIImage(named:"Chicken1.png")
     }
     
     
@@ -295,7 +347,7 @@ class PlayViewController: UIViewController {
      }
      */
     func checkCollisionBetweenHeroAndChicken(){
-        if((imageHero.layer.frame.intersects(imageChicken1.layer.frame) && (!imageChicken1.isHidden)) || (imageHero.layer.frame.intersects(imageChicken2.layer.frame)) && (!imageChicken2.isHidden)){
+        if((imageHero.layer.frame.intersects(imageChicken1.layer.frame) && (!imageChicken1.isHidden)) || (imageHero.layer.frame.intersects(imageChicken2.layer.frame)) && (!imageChicken2.isHidden) || (imageHero.layer.frame.intersects(imageChicken3.layer.frame)) && (!imageChicken3.isHidden)){
             if(!imageHero.isHidden && !isAttacked){
                 print("Collide...!")
                 isAttacked = true
@@ -319,7 +371,7 @@ class PlayViewController: UIViewController {
     func checkCollisionBetweenAttackShootAndChicken(){
         if((imageAttackSingleGunShot.layer.frame.intersects(imageChicken1.layer.frame) && (!imageChicken1.isHidden))){
             if(!imageAttackSingleGunShot.isHidden){
-                print("Collide with gun shoot...!")
+                print("Collide with shoot...!")
                 killChicken(imageTemp: imageChicken1)
             }
         }
@@ -330,6 +382,45 @@ class PlayViewController: UIViewController {
                 killChicken(imageTemp: imageChicken2)
             }
         }
+        
+        if((imageAttackSingleGunShot.layer.frame.intersects(imageChicken3.layer.frame)) && (!imageChicken3.isHidden)){
+            if(!imageAttackSingleGunShot.isHidden){
+                print("Collide with shoot...!")
+                killChicken(imageTemp: imageChicken3)
+            }
+        }
+        if(isGoToNextLevel()){
+            levelCount += 1
+            imageNextLevel.isHidden = false
+            buttonAttackSingleGunShot.isHidden = true
+            print("Next level")
+            print(levelCount)
+            imageChicken1.frame.origin.y = -600
+            imageChicken2.frame.origin.y = -600
+            imageChicken3.frame.origin.y = -600
+            if(levelCount == 1){
+                imageChicken1.isHidden = false
+                imageChicken2.isHidden = false
+                imageChicken3.isHidden = true
+            }
+            else if(levelCount == 2){
+                imageChicken1.isHidden = false
+                imageChicken2.isHidden = false
+                imageChicken3.isHidden = false
+            }
+            
+        }
+    }
+    
+    func isGoToNextLevel() -> Bool{
+        print(imageChicken1.isHidden)
+        print(imageChicken2.isHidden)
+        print(imageChicken3.isHidden)
+        print("----------")
+        if(imageChicken1.isHidden && imageChicken2.isHidden && imageChicken3.isHidden){
+            return true
+        }
+        return false
     }
     
     func killChicken(imageTemp: UIImageView){
