@@ -11,6 +11,8 @@ import AVFoundation
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var labelYourScore: UILabel!
+    @IBOutlet var buttonBack: UIButton!
     @IBOutlet var buttonPlayAgain: UIButton!
     @IBOutlet var imageGameOver: UIImageView!
     @IBOutlet var imageNextLevel: UIImageView!
@@ -42,6 +44,7 @@ class PlayViewController: UIViewController {
     private var timerReleaseEgg: Timer?
     var levelCount = 0
     var isGameOver = false
+    var highScore = 0
     
     var i =  0
     var healthHero = 100
@@ -150,6 +153,9 @@ class PlayViewController: UIViewController {
                 self.imageHero.frame = frameTemp
             })
         }
+    }
+    @IBAction func pushButtonBack(_ sender: Any) {
+        player?.stop()
     }
     
     
@@ -431,6 +437,11 @@ class PlayViewController: UIViewController {
                 imageChicken2.isHidden = false
                 imageChicken3.isHidden = false
             }
+            else if(levelCount > 2){
+                imageChicken1.isHidden = false
+                imageChicken2.isHidden = false
+                imageChicken3.isHidden = false
+            }
             
         }
     }
@@ -453,6 +464,8 @@ class PlayViewController: UIViewController {
         startTimerHideBlast(timeTemp: 1.2, imageTemp: imageTemp)
         imageAttackSingleGunShot.isHidden = true
         print("Chicken killed...!")
+        highScore += 100
+        labelYourScore.text = String(highScore)
         
     }
     
