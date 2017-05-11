@@ -11,6 +11,8 @@ import AVFoundation
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var labelYourScoreStatic: UILabel!
+    @IBOutlet var labelYourScoreAtGameOver: UILabel!
     @IBOutlet var labelYourScore: UILabel!
     @IBOutlet var buttonBack: UIButton!
     @IBOutlet var buttonPlayAgain: UIButton!
@@ -53,8 +55,6 @@ class PlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timers()
-        //moveChicken()
-        //moveChickenInCurveMotion()
         repeatTimers()
         startingState()
         releaseEggs()
@@ -79,6 +79,8 @@ class PlayViewController: UIViewController {
         imageNextLevel.isHidden = true
         imageGameOver.isHidden = true
         buttonPlayAgain.isHidden = true
+        labelYourScoreAtGameOver.isHidden = true
+        labelYourScoreStatic.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -466,7 +468,7 @@ class PlayViewController: UIViewController {
         print("Chicken killed...!")
         highScore += 100
         labelYourScore.text = String(highScore)
-        
+        labelYourScoreAtGameOver.text = String(highScore)
     }
     
     func blinkHero(){
@@ -530,6 +532,8 @@ class PlayViewController: UIViewController {
         imageEgg1.isHidden = true
         imageGameOver.isHidden = false
         buttonPlayAgain.isHidden = false
+        labelYourScoreAtGameOver.isHidden = false
+        labelYourScoreStatic.isHidden = false
     }
     
     

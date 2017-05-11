@@ -73,6 +73,15 @@
                                         <rect key="frame" x="136" y="114" width="65" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-hz-7qW">
+                                        <rect key="frame" x="0.0" y="1" width="45" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="button_exit.ico"/>
+                                        <connections>
+                                            <action selector="pushButtonBack:" destination="INL-h3-c2f" eventType="touchUpInside" id="H3B-cM-muh"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chicken1.png" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-nB-heZ">
                                         <rect key="frame" x="241" y="107" width="65" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,15 +110,20 @@
                                             <segue destination="INL-h3-c2f" kind="presentation" id="Hr0-fa-Xwm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-hz-7qW">
-                                        <rect key="frame" x="0.0" y="1" width="45" height="44"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ii-or-TGJ">
+                                        <rect key="frame" x="226" y="150" width="117" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="button_exit.ico"/>
-                                        <connections>
-                                            <action selector="pushButtonBack:" destination="INL-h3-c2f" eventType="touchUpInside" id="H3B-cM-muh"/>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
-                                        </connections>
-                                    </button>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5C-IA-ggK">
+                                        <rect key="frame" x="56" y="150" width="162" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -203,11 +217,13 @@
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
                         <outlet property="imageNextLevel" destination="gAM-R7-6b5" id="kNC-Qy-Abc"/>
                         <outlet property="labelYourScore" destination="NZr-uK-p0X" id="VnB-Mg-WFF"/>
+                        <outlet property="labelYourScoreAtGameOver" destination="1ii-or-TGJ" id="mR8-fS-s8x"/>
+                        <outlet property="labelYourScoreStatic" destination="p5C-IA-ggK" id="BIO-EG-1Qf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktU-oT-6Pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696.79999999999995" y="100.29985007496252"/>
+            <point key="canvasLocation" x="698.39999999999998" y="111.0944527736132"/>
         </scene>
     </scenes>
     <resources>
