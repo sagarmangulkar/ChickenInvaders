@@ -97,6 +97,18 @@
                                         <rect key="frame" x="53" y="33" width="65" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="game-over.png" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-8L-mQO">
+                                        <rect key="frame" x="47" y="197" width="280" height="171"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-Bn-A9Y">
+                                        <rect key="frame" x="79" y="369" width="218" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="image_Play_Again_Button.png"/>
+                                        <connections>
+                                            <segue destination="INL-h3-c2f" kind="presentation" id="Hr0-fa-Xwm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -162,6 +174,7 @@
                         <outlet property="buttonAttackSingleGunShot" destination="VdN-vf-2S9" id="uNX-dI-mtr"/>
                         <outlet property="buttonDown" destination="fHb-h2-yGW" id="jhf-Dr-aSK"/>
                         <outlet property="buttonLeft" destination="voA-6e-HCJ" id="5cr-1H-QHd"/>
+                        <outlet property="buttonPlayAgain" destination="r4D-Bn-A9Y" id="0Jl-ha-9Pz"/>
                         <outlet property="buttonRight" destination="6k7-ZI-5dJ" id="7KL-df-rZI"/>
                         <outlet property="buttonUp" destination="kYV-jk-Bq3" id="uq4-0W-Go8"/>
                         <outlet property="imageAttackSingleGunShot" destination="gYc-Vz-QiK" id="dUN-xg-dVZ"/>
@@ -169,6 +182,7 @@
                         <outlet property="imageChicken2" destination="mzg-nB-heZ" id="X37-di-RYQ"/>
                         <outlet property="imageChicken3" destination="cUF-c6-Vxa" id="TQT-Q1-VYZ"/>
                         <outlet property="imageEgg1" destination="eYe-MO-Eth" id="jnV-ho-M5y"/>
+                        <outlet property="imageGameOver" destination="vAB-8L-mQO" id="8jx-2q-PP1"/>
                         <outlet property="imageHealthHero" destination="AJJ-r4-Ydp" id="2Eg-Fu-3sS"/>
                         <outlet property="imageHero" destination="ApE-Ps-Gcf" id="XhP-37-JG2"/>
                         <outlet property="imageNextLevel" destination="gAM-R7-6b5" id="kNC-Qy-Abc"/>
@@ -190,11 +204,16 @@
         <image name="button_Attack.png" width="300" height="300"/>
         <image name="button_exit.ico" width="256" height="256"/>
         <image name="egg.png" width="958" height="1317"/>
+        <image name="game-over.png" width="660" height="372"/>
         <image name="healthbar_100.png" width="161" height="37"/>
         <image name="hero_plane.png" width="720" height="713"/>
+        <image name="image_Play_Again_Button.png" width="218" height="108"/>
         <image name="next_level.png" width="618" height="348"/>
         <image name="panel_background.jpg" width="284" height="177"/>
         <image name="start_button.png" width="315" height="149"/>
         <image name="starting_background3.jpg" width="497" height="400"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zw8-0d-dMy"/>
+    </inferredMetricsTieBreakers>
 </document>

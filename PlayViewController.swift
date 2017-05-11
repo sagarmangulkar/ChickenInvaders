@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayViewController: UIViewController {
     
+    @IBOutlet var buttonPlayAgain: UIButton!
+    @IBOutlet var imageGameOver: UIImageView!
     @IBOutlet var imageNextLevel: UIImageView!
     @IBOutlet var imageChicken3: UIImageView!
     @IBOutlet var imageEgg1: UIImageView!
@@ -38,6 +41,7 @@ class PlayViewController: UIViewController {
     private var timerHideBlast: Timer?
     private var timerReleaseEgg: Timer?
     var levelCount = 0
+    var isGameOver = false
     
     var i =  0
     var healthHero = 100
@@ -51,6 +55,8 @@ class PlayViewController: UIViewController {
         repeatTimers()
         startingState()
         releaseEggs()
+        player?.stop()
+        playSound(tempSoundFileName: "Futuristic_music")
     }
     
     func releaseEggs(){
@@ -68,6 +74,8 @@ class PlayViewController: UIViewController {
         imageChicken2.isHidden = true
         imageChicken3.isHidden = true
         imageNextLevel.isHidden = true
+        imageGameOver.isHidden = true
+        buttonPlayAgain.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +83,22 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var player: AVAudioPlayer?
+    
+    func playSound(tempSoundFileName: String) {
+        let url = Bundle.main.url(forResource: tempSoundFileName, withExtension: "mp3")!
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+
     func repeatTimers(){
         var timerCheckCollision = Timer.scheduledTimer(timeInterval: 19, target: self, selector: #selector(timers), userInfo: nil, repeats: true)
     }
@@ -248,7 +272,6 @@ class PlayViewController: UIViewController {
     
     func startTimerHideBlast(timeTemp: Double, imageTemp: UIImageView)-> Void {
         print("Inside Timer...1")
-        // guard timerHideBlastJoker == nil else { return }
         timerHideBlast = Timer.scheduledTimer(timeInterval: timeTemp, target: self, selector: #selector(hideBlast), userInfo: imageTemp, repeats: false)
     }
     
@@ -465,7 +488,35 @@ class PlayViewController: UIViewController {
         }
         else if(healthHero == 0){
             imageHealthHero.image = UIImage(named:"healthbar_00.png")
+            gameOver()
         }
+    }
+    
+    func gameOver(){
+        isGameOver = true
+        player?.stop()
+        imageHero.loadGif(name:"blast")
+        startTimerHideBlast(timeTemp: 1.2, imageTemp: imageHero)
+        
+        stopTimerBlinkHero()
+        stopTimerAttack()
+        stopTimerMoveChicken1()
+        stopTimerMoveChicken2()
+        stopTimerMoveChicken3()
+        
+        timerAttack?.invalidate()
+        //timerMoveChicken1?.invalidate()
+        timerReleaseEgg?.invalidate()
+        timerBlinkHero?.invalidate()
+        
+        imageNextLevel.isHidden = true
+        imageChicken1.isHidden = true
+        imageChicken2.isHidden = true
+        imageChicken3.isHidden = true
+        buttonAttackSingleGunShot.isHidden = true
+        imageEgg1.isHidden = true
+        imageGameOver.isHidden = false
+        buttonPlayAgain.isHidden = false
     }
     
     
