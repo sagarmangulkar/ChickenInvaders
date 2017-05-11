@@ -37,6 +37,9 @@
 		52447DF21EC3F23F00C759A2 /* game-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 52447DF01EC3F23F00C759A2 /* game-over.png */; };
 		52447DF31EC3F23F00C759A2 /* image_Play_Again_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 52447DF11EC3F23F00C759A2 /* image_Play_Again_Button.png */; };
 		52447DF51EC3F7CC00C759A2 /* Futuristic_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52447DF41EC3F7CC00C759A2 /* Futuristic_music.mp3 */; };
+		52447DF71EC4041A00C759A2 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 52447DF61EC4041A00C759A2 /* button_back.png */; };
+		52447DFA1EC4063900C759A2 /* bomb_blast.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52447DF81EC4063900C759A2 /* bomb_blast.mp3 */; };
+		52447DFB1EC4063900C759A2 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52447DF91EC4063900C759A2 /* fire.mp3 */; };
 		52B61E691EBFACEB00771BD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B61E681EBFACEB00771BD9 /* AppDelegate.swift */; };
 		52B61E6B1EBFACEB00771BD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B61E6A1EBFACEB00771BD9 /* ViewController.swift */; };
 		52B61E6E1EBFACEB00771BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B61E6C1EBFACEB00771BD9 /* Main.storyboard */; };
@@ -94,6 +97,9 @@
 		52447DF01EC3F23F00C759A2 /* game-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game-over.png"; sourceTree = SOURCE_ROOT; };
 		52447DF11EC3F23F00C759A2 /* image_Play_Again_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_Play_Again_Button.png; sourceTree = SOURCE_ROOT; };
 		52447DF41EC3F7CC00C759A2 /* Futuristic_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Futuristic_music.mp3; sourceTree = SOURCE_ROOT; };
+		52447DF61EC4041A00C759A2 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_back.png; sourceTree = SOURCE_ROOT; };
+		52447DF81EC4063900C759A2 /* bomb_blast.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bomb_blast.mp3; sourceTree = SOURCE_ROOT; };
+		52447DF91EC4063900C759A2 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = SOURCE_ROOT; };
 		52B61E651EBFACEB00771BD9 /* Chicken_Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chicken_Invaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B61E681EBFACEB00771BD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B61E6A1EBFACEB00771BD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +143,9 @@
 		52447DB71EC15F6000C759A2 /* Supporting_files */ = {
 			isa = PBXGroup;
 			children = (
+				52447DF81EC4063900C759A2 /* bomb_blast.mp3 */,
+				52447DF91EC4063900C759A2 /* fire.mp3 */,
+				52447DF61EC4041A00C759A2 /* button_back.png */,
 				52447DF41EC3F7CC00C759A2 /* Futuristic_music.mp3 */,
 				52447DEC1EC3DC3D00C759A2 /* panel_background.jpg */,
 				52447DF01EC3F23F00C759A2 /* game-over.png */,
@@ -337,11 +346,13 @@
 				52447DEF1EC3ED7D00C759A2 /* next_level.png in Resources */,
 				52447DC81EC2E4F900C759A2 /* healthbar_75.png in Resources */,
 				52B61E731EBFACEB00771BD9 /* LaunchScreen.storyboard in Resources */,
+				52447DFB1EC4063900C759A2 /* fire.mp3 in Resources */,
 				52447DBC1EC161A300C759A2 /* buttonDown.jpg in Resources */,
 				52447DE81EC3C48000C759A2 /* starting_background3.jpg in Resources */,
 				52447DF31EC3F23F00C759A2 /* image_Play_Again_Button.png in Resources */,
 				52447DF21EC3F23F00C759A2 /* game-over.png in Resources */,
 				52B61E701EBFACEB00771BD9 /* Assets.xcassets in Resources */,
+				52447DF71EC4041A00C759A2 /* button_back.png in Resources */,
 				52447DBF1EC161A300C759A2 /* buttonUp.jpg in Resources */,
 				52447DC91EC2E4F900C759A2 /* healthbar_100.png in Resources */,
 				52447DE41EC3C48000C759A2 /* Play_Background_Space.jpg in Resources */,
@@ -362,6 +373,7 @@
 				52447DED1EC3DC3D00C759A2 /* panel_background.jpg in Resources */,
 				52447DC11EC19D0400C759A2 /* Chicken1.png in Resources */,
 				52447DF51EC3F7CC00C759A2 /* Futuristic_music.mp3 in Resources */,
+				52447DFA1EC4063900C759A2 /* bomb_blast.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

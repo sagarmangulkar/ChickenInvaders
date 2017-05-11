@@ -103,6 +103,22 @@ class PlayViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    var playerFire: AVAudioPlayer?
+    
+    func playSoundFire(tempSoundFileName: String) {
+        let url = Bundle.main.url(forResource: tempSoundFileName, withExtension: "mp3")!
+        
+        do {
+            playerFire = try AVAudioPlayer(contentsOf: url)
+            guard let playerFire = playerFire else { return }
+            
+            playerFire.prepareToPlay()
+            playerFire.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
 
     func repeatTimers(){
         var timerCheckCollision = Timer.scheduledTimer(timeInterval: 19, target: self, selector: #selector(timers), userInfo: nil, repeats: true)
@@ -163,8 +179,12 @@ class PlayViewController: UIViewController {
     
     @IBAction func pushButtonAttackSingleGunShot(_ sender: Any) {
         startTimerAttack(timeTemp: 0.05)
+        playSoundFire(tempSoundFileName:"fire")
     }
     
+    @IBAction func pushButtonExit(_ sender: Any) {
+        exit(0)
+    }
 
     func stopTimerMoveChicken1() {
         guard timerMoveChicken1 != nil else { return }
@@ -469,6 +489,7 @@ class PlayViewController: UIViewController {
         highScore += 100
         labelYourScore.text = String(highScore)
         labelYourScoreAtGameOver.text = String(highScore)
+        playSoundFire(tempSoundFileName:"bomb_blast")
     }
     
     func blinkHero(){
@@ -512,6 +533,7 @@ class PlayViewController: UIViewController {
         player?.stop()
         imageHero.loadGif(name:"blast")
         startTimerHideBlast(timeTemp: 1.2, imageTemp: imageHero)
+        playSoundFire(tempSoundFileName:"bomb_blast")
         
         stopTimerBlinkHero()
         stopTimerAttack()

@@ -76,7 +76,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-hz-7qW">
                                         <rect key="frame" x="0.0" y="1" width="45" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="button_exit.ico"/>
+                                        <state key="normal" image="button_back.png"/>
                                         <connections>
                                             <action selector="pushButtonBack:" destination="INL-h3-c2f" eventType="touchUpInside" id="H3B-cM-muh"/>
                                             <segue destination="BYZ-38-t0r" kind="presentation" id="DWS-v8-dtI"/>
@@ -110,7 +110,7 @@
                                             <segue destination="INL-h3-c2f" kind="presentation" id="Hr0-fa-Xwm"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ii-or-TGJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ii-or-TGJ">
                                         <rect key="frame" x="226" y="150" width="117" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -193,8 +193,16 @@
                                         <color key="textColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="0.99055842240000003" green="1" blue="0.77021787659999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f76-Dh-CQU">
+                                        <rect key="frame" x="322" y="96" width="53" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="button_exit.ico"/>
+                                        <connections>
+                                            <action selector="pushButtonExit:" destination="INL-h3-c2f" eventType="touchUpInside" id="b3p-sF-7yN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.42506544499999999" green="0.31080054039999999" blue="0.31080054039999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.010312045264525824" green="0.066290795809516606" blue="0.28687418191099479" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -235,6 +243,7 @@
         <image name="buttonRight.jpg" width="344" height="344"/>
         <image name="buttonUp.jpg" width="341" height="342"/>
         <image name="button_Attack.png" width="300" height="300"/>
+        <image name="button_back.png" width="807" height="868"/>
         <image name="button_exit.ico" width="256" height="256"/>
         <image name="egg.png" width="958" height="1317"/>
         <image name="game-over.png" width="660" height="372"/>
